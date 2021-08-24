@@ -3,7 +3,7 @@ import "./Weather.css";
 // eslint-disable-next-line 
 import axios from "axios";
 
-export default function Weather() {
+export default function Weather(props) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({ ready: false });
   
@@ -69,9 +69,9 @@ export default function Weather() {
 
   } else {
     const apiKey = "a6105b25a2bdbe419f9a7bbe7361c93e";
-    let city = "Porto";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metrics`;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metrics`;
     axios.get(apiUrl).then(handleResponse)
-return "Loading...";
+
+    return "Loading...";
 }
 }
