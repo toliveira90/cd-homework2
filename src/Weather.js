@@ -31,23 +31,23 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "a6105b25a2bdbe419f9a7bbe7361c93e";
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metrics`;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse)
 
   }
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
     search();
     // search for a city
   }
 
-  function handleCityChange(event){
+  function handleCityChange(event) {
     setCity(event.target.value)
 
   }
   if (weatherData.ready) {
 
-    return  <div className="Weather">
+    return <div className="Weather">
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-9">
@@ -55,20 +55,20 @@ export default function Weather(props) {
               type="search"
               placeholder="Enter a city..."
               className="form-control"
-              autoFocus="on" 
-              onChange={handleCityChange}/>
+              autoFocus="on"
+              onChange={handleCityChange} />
           </div>
           <div className="col-3">
             <input type="submit" value="Search" className="btn btn-primary w100" />
           </div>
         </div>
       </form>
-      <WeatherInfo data={weatherData}/>
+      <WeatherInfo data={weatherData} />
 
-      </div>
-      
+    </div>
+
   } else {
     search();
-   return "Loading...";
-}
+    return "Loading...";
+  }
 }
