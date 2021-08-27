@@ -9,7 +9,7 @@ function App() {
       <Weather defaultCity="Porto"/>
       <footer>
         This project was coded by Tatiana Oliveira and is {" "}
-        <a href="https://github.com/toliveira90/homework2"
+        <a href="https://github.com/toliveira90/cd-homework2"
         >
         open-sourced on GitbHub
         </a>
